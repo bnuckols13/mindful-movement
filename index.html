@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Body as Dreamer — Mindful Movement & Depth Practice</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --ink: #1a1a2e;
+            --parchment: #f5f0e8;
+            --parchment-dark: #e8e0d0;
+            --teal-deep: #14716b;
+            --teal-light: #2d9f93;
+            --teal-glow: #5eead4;
+            --rose-muted: #b56576;
+            --rose-soft: #e8a0b4;
+            --violet-deep: #6a4c93;
+            --violet-soft: #b19cd9;
+            --gold-warm: #c9a84c;
+            --gold-light: #e8d5a3;
+            --slate: #4a5568;
+            --slate-light: #718096;
+            --shadow-soft: 0 8px 32px rgba(26, 26, 46, 0.08);
+            --shadow-medium: 0 12px 48px rgba(26, 26, 46, 0.12);
+            --shadow-hover: 0 16px 56px rgba(26, 26, 46, 0.16);
+        }
+
+        body {
+            font-family: 'EB Garamond', Georgia, serif;
+            background: var(--parchment);
+            color: var(--ink);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.7;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 15% 60%, rgba(20, 113, 107, 0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 85% 25%, rgba(106, 76, 147, 0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 85%, rgba(181, 101, 118, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bg-sigil {
+            position: fixed;
+            pointer-events: none;
+            opacity: 0.04;
+            z-index: 0;
+        }
+
+        .bg-sigil-1 {
+            width: 400px;
+            height: 400px;
+            border: 2px solid var(--teal-deep);
+            border-radius: 50%;
+            top: -80px;
+            right: -80px;
+            animation: drift 30s infinite ease-in-out;
+        }
+
+        .bg-sigil-2 {
+            width: 300px;
+            height: 300px;
+            border: 2px solid var(--violet-deep);
+            top: 40%;
+            left: -120px;
+            transform: rotate(45deg);
+            animation: drift 25s infinite ease-in-out reverse;
+        }
+
+        .bg-sigil-3 {
+            width: 200px;
+            height: 200px;
+            border: 2px solid var(--rose-muted);
+            border-radius: 50%;
+            bottom: 10%;
+            right: 5%;
+            animation: drift 35s infinite ease-in-out;
+            animation-delay: -8s;
+        }
+
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(15px, -20px) rotate(3deg); }
+            66% { transform: translate(-10px, 15px) rotate(-2deg); }
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2.5rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(201, 168, 76, 0.25);
+            animation: fadeDown 0.8s ease;
+        }
+
+        @keyframes fadeDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header-sigil {
+            display: inline-block;
+            width: 48px;
+            height: 48px;
+            border: 2px solid var(--gold-warm);
+            border-radius: 50%;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .header-sigil::before {
+            content: '';
+            position: absolute;
+            inset: 6px;
+            border: 1px solid var(--gold-warm);
+            border-radius: 50%;
+        }
+
+        .header-sigil::after {
+            content: '◇';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--gold-warm);
+            font-size: 1rem;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.4rem;
+            font-weight: 600;
+            color: var(--ink);
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.15rem;
+            color: var(--slate-light);
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .group-meta {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--slate-light);
+            letter-spacing: 0.03em;
+        }
+
+        /* Navigation */
+        .nav-row {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.06em;
+            padding: 0.6rem 1.5rem;
+            background: transparent;
+            border: 1.5px solid rgba(201, 168, 76, 0.3);
+            border-radius: 4px;
+            color: var(--slate);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-tab:hover {
+            border-color: var(--gold-warm);
+            color: var(--ink);
+            background: rgba(201, 168, 76, 0.06);
+        }
+
+        .nav-tab.active {
+            background: var(--ink);
+            color: var(--parchment);
+            border-color: var(--ink);
+        }
+
+        /* Pages */
+        .page { display: none; animation: fadeIn 0.5s ease; }
+        .page.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2.25rem;
+            box-shadow: var(--shadow-soft);
+            margin-bottom: 2rem;
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .card:hover { box-shadow: var(--shadow-medium); }
+
+        .card-accent {
+            position: absolute;
+            top: 0;
+            left: 2rem;
+            right: 2rem;
+            height: 2px;
+            border-radius: 0 0 2px 2px;
+        }
+
+        .accent-teal { background: linear-gradient(90deg, var(--teal-deep), var(--teal-light)); }
+        .accent-violet { background: linear-gradient(90deg, var(--violet-deep), var(--violet-soft)); }
+        .accent-rose { background: linear-gradient(90deg, var(--rose-muted), var(--rose-soft)); }
+        .accent-gold { background: linear-gradient(90deg, var(--gold-warm), var(--gold-light)); }
+
+        .card h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--ink);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--teal-deep);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .icon-teal { background: rgba(20, 113, 107, 0.1); color: var(--teal-deep); }
+        .icon-violet { background: rgba(106, 76, 147, 0.1); color: var(--violet-deep); }
+        .icon-rose { background: rgba(181, 101, 118, 0.1); color: var(--rose-muted); }
+        .icon-gold { background: rgba(201, 168, 76, 0.1); color: var(--gold-warm); }
+
+        /* Quote block */
+        .quote-block {
+            text-align: center;
+            padding: 2rem 2.5rem;
+            margin: 1.5rem 0;
+            background: linear-gradient(135deg, rgba(20, 113, 107, 0.03) 0%, rgba(106, 76, 147, 0.03) 100%);
+            border-radius: 8px;
+            border-left: 3px solid var(--gold-warm);
+            border-right: 3px solid var(--gold-warm);
+        }
+
+        .quote-block p {
+            font-size: 1.15rem;
+            font-style: italic;
+            color: var(--ink);
+            line-height: 1.8;
+        }
+
+        .quote-source {
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--slate-light);
+            font-style: normal;
+            letter-spacing: 0.03em;
+        }
+
+        /* Breathing / Body Scan */
+        .meditation-container { text-align: center; padding: 2rem; }
+
+        .breath-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid var(--teal-deep);
+            margin: 1.5rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            color: var(--teal-deep);
+            letter-spacing: 0.05em;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .breath-circle::before {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border: 1px solid rgba(20, 113, 107, 0.2);
+            border-radius: 50%;
+        }
+
+        .breath-circle.breathing { animation: breathe 8s infinite ease-in-out; }
+        .breath-circle.breathing::before { animation: breathe-outer 8s infinite ease-in-out; animation-delay: 0.2s; }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); border-color: var(--teal-deep); }
+            25% { transform: scale(1.15); border-color: var(--teal-light); }
+            50% { transform: scale(1.15); border-color: var(--teal-light); }
+            75% { transform: scale(1); border-color: var(--teal-deep); }
+        }
+
+        @keyframes breathe-outer {
+            0%, 100% { transform: scale(1); opacity: 0.2; }
+            25% { transform: scale(1.12); opacity: 0.4; }
+            50% { transform: scale(1.12); opacity: 0.4; }
+            75% { transform: scale(1); opacity: 0.2; }
+        }
+
+        .breath-instruction {
+            font-size: 1rem;
+            color: var(--slate);
+            margin-top: 1rem;
+            min-height: 1.5em;
+            transition: opacity 0.5s ease;
+        }
+
+        .meditation-steps {
+            text-align: left;
+            max-width: 600px;
+            margin: 2rem auto 0;
+        }
+
+        .meditation-steps li {
+            padding: 0.6rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--slate);
+            list-style: none;
+        }
+
+        .meditation-steps li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--teal-deep);
+            font-size: 0.6rem;
+            top: 0.85rem;
+        }
+
+        /* Expandable sections */
+        .expandable {
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .expandable:hover { border-color: rgba(20, 113, 107, 0.2); }
+
+        .expandable-header {
+            padding: 1.25rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(245, 240, 232, 0.5);
+            transition: background 0.3s ease;
+            user-select: none;
+        }
+
+        .expandable-header:hover { background: rgba(20, 113, 107, 0.04); }
+        .expandable-header h3 { margin: 0; display: flex; align-items: center; gap: 0.75rem; }
+
+        .expand-icon {
+            font-size: 0.8rem;
+            color: var(--slate-light);
+            transition: transform 0.3s ease;
+        }
+
+        .expandable.open .expand-icon { transform: rotate(90deg); }
+
+        .expandable-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+        }
+
+        .expandable.open .expandable-body {
+            max-height: 2000px;
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        .expandable-body p {
+            color: var(--slate);
+            line-height: 1.8;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Principle cards */
+        .principle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .principle-card {
+            padding: 1.5rem;
+            background: var(--parchment);
+            border-radius: 8px;
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .principle-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft); }
+
+        .principle-label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--teal-deep);
+            margin-bottom: 0.5rem;
+        }
+
+        .principle-card p {
+            color: var(--slate);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Station grid */
+        .station-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .station-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid rgba(0,0,0,0.06);
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .station-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+        .station-card.expanded { grid-column: 1 / -1; }
+
+        .station-number {
+            font-family: 'Cinzel', serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--slate-light);
+            margin-bottom: 0.75rem;
+        }
+
+        .station-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.15rem;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+        }
+
+        .station-card .station-subtitle {
+            color: var(--slate-light);
+            font-style: italic;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .station-body {
+            display: none;
+            margin-top: 1.25rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .station-card.expanded .station-body { display: block; animation: fadeIn 0.4s ease; }
+
+        .station-prompt {
+            background: var(--parchment);
+            padding: 1.25rem 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--teal-deep);
+        }
+
+        .station-prompt p { color: var(--slate); font-size: 0.95rem; line-height: 1.7; }
+        .station-prompt strong { color: var(--ink); }
+
+        .facilitator-note {
+            background: rgba(201, 168, 76, 0.06);
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            border: 1px dashed rgba(201, 168, 76, 0.3);
+        }
+
+        .facilitator-note::before {
+            content: '◇ Facilitator Note';
+            display: block;
+            font-family: 'Cinzel', serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold-warm);
+            margin-bottom: 0.5rem;
+        }
+
+        .facilitator-note p { color: var(--slate); font-size: 0.9rem; line-height: 1.7; }
+
+        /* Textarea */
+        .reflection-area { margin-top: 1.5rem; }
+
+        .reflection-area label {
+            display: block;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.04em;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1.5px solid rgba(20, 113, 107, 0.2);
+            border-radius: 8px;
+            font-family: 'EB Garamond', Georgia, serif;
+            font-size: 1rem;
+            line-height: 1.7;
+            resize: vertical;
+            min-height: 100px;
+            background: white;
+            color: var(--ink);
+            transition: all 0.3s ease;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--teal-deep);
+            box-shadow: 0 0 0 3px rgba(20, 113, 107, 0.08);
+        }
+
+        textarea::placeholder { color: var(--slate-light); font-style: italic; }
+
+        /* Integration prompts */
+        .integration-prompt {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(20, 113, 107, 0.04), rgba(106, 76, 147, 0.04));
+            border-radius: 8px;
+            margin-bottom: 1.25rem;
+        }
+
+        .integration-prompt h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+        }
+
+        .integration-prompt p { color: var(--slate); font-size: 0.95rem; line-height: 1.7; }
+
+        /* Pass option */
+        .pass-option {
+            text-align: center;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            color: var(--slate-light);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .pass-option a {
+            color: var(--teal-deep);
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            text-underline-offset: 3px;
+            cursor: pointer;
+        }
+
+        /* Closing */
+        .closing-block {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(201, 168, 76, 0.25);
+            margin-top: 2rem;
+        }
+
+        .closing-block p {
+            color: var(--slate);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container { padding: 1.5rem 1rem; }
+            h1 { font-size: 1.8rem; }
+            .card { padding: 1.5rem; }
+            .nav-row { gap: 0.35rem; }
+            .nav-tab { padding: 0.5rem 1rem; font-size: 0.75rem; }
+            .station-grid { grid-template-columns: 1fr; }
+            .quote-block { padding: 1.5rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.15s !important;
+            }
+        }
+
+        @media print {
+            .bg-sigil, .nav-row, .breath-circle { display: none; }
+            .card { box-shadow: none; border: 1px solid #ddd; }
+            .expandable-body { max-height: none !important; padding: 0 1.5rem 1.5rem !important; }
+            .station-body { display: block !important; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="bg-sigil bg-sigil-1"></div>
+<div class="bg-sigil bg-sigil-2"></div>
+<div class="bg-sigil bg-sigil-3"></div>
+
+<div class="container">
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-sigil"></div>
+        <h1>The Body as Dreamer</h1>
+        <p class="subtitle">Mindful Movement & Depth Practice — Process, Not Perfection</p>
+        <p class="group-meta">Expressive Arts Therapy Group ◆ 75–90 minutes ◆ Adults</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav-row" role="tablist" aria-label="Group sections">
+        <button class="nav-tab active" role="tab" onclick="showPage(0)" aria-selected="true">I · Opening</button>
+        <button class="nav-tab" role="tab" onclick="showPage(1)">II · Foundations</button>
+        <button class="nav-tab" role="tab" onclick="showPage(2)">III · Stations</button>
+        <button class="nav-tab" role="tab" onclick="showPage(3)">IV · Integration</button>
+    </nav>
+
+    <!-- ===================== PAGE 1: OPENING ===================== -->
+    <section class="page active" id="page-0">
+
+        <div class="card">
+            <div class="card-accent accent-gold"></div>
+            <h2><span class="section-icon icon-gold">◇</span> Welcome & Centering</h2>
+
+            <div class="quote-block">
+                <p>"The body is not a thing we have, but a living being that we are."</p>
+                <div class="quote-source">— Maurice Merleau-Ponty</div>
+            </div>
+
+            <div class="meditation-container">
+                <p style="color: var(--slate); max-width: 560px; margin: 0 auto 1rem;">Before we begin, let's arrive — not just mentally, but physically. Click the circle below to follow a breathing guide, or simply settle in your own rhythm.</p>
+
+                <div class="breath-circle" id="breathCircle" onclick="toggleBreathing()" tabindex="0" role="button" aria-label="Start breathing exercise">
+                    <span id="breathText">Begin</span>
+                </div>
+
+                <p class="breath-instruction" id="breathInstruction"></p>
+            </div>
+
+            <div class="meditation-steps">
+                <p style="font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal-deep); margin-bottom: 0.75rem;">Somatic Arrival Guide</p>
+                <ul>
+                    <li>Feel the weight of your body against whatever supports it. Not the idea of weight — the actual sensation. Gravity is already doing something to you. Notice what.</li>
+                    <li>Let your attention travel slowly from the soles of your feet upward. Not searching for anything wrong. Just visiting — like walking through rooms of a house you haven't entered in a while.</li>
+                    <li>Pause wherever you notice sensation — warmth, tightness, tingling, numbness, ease. Each one is a kind of speech. Today we practice listening to that language.</li>
+                    <li>The depth tradition recognizes the body as its own psyche — it dreams, it remembers, it knows things the mind forgets. Today we follow its lead.</li>
+                    <li>When you feel ready, let your eyes soften open. Let the room arrive around you gently.</li>
+                </ul>
+            </div>
+
+            <div class="pass-option">
+                As always, you are welcome to <a onclick="showPage(1)">pass</a> or modify any part of this experience to honor your own needs.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-accent accent-teal"></div>
+            <h2><span class="section-icon icon-teal">◆</span> Today's Intention</h2>
+            <p style="color: var(--slate); font-size: 1.05rem; line-height: 1.8;">Today's group works with <strong>mindful movement as depth practice</strong> — the understanding that the body carries its own intelligence, its own memory, its own imaginal life. We are not using the body as an instrument of the mind. We are following the body as a guide in its own right. Movement researcher and somatic pioneer Emilie Conrad called the body "a verb, not a noun" — always in process, always becoming. That's our orientation today: <strong>process, not perfection</strong>. There is no wrong way to move. There is only the willingness to listen.</p>
+
+            <div class="principle-grid">
+                <div class="principle-card">
+                    <div class="principle-label">Principle I</div>
+                    <p>Sensation before story — feel first, interpret later</p>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-label">Principle II</div>
+                    <p>Follow the impulse — let movement arise rather than performing it</p>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-label">Principle III</div>
+                    <p>Stillness is movement — rest, pause, and not-moving are valid and welcome</p>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-label">Principle IV</div>
+                    <p>The body knows things the mind has forgotten — trust what emerges</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== PAGE 2: FOUNDATIONS ===================== -->
+    <section class="page" id="page-1">
+
+        <div class="card">
+            <div class="card-accent accent-violet"></div>
+            <h2><span class="section-icon icon-violet">◈</span> The Soma — Why the Body Matters in Depth Work</h2>
+            <p style="color: var(--slate); line-height: 1.8; margin-bottom: 1.5rem;">Western culture has long treated the body as a vehicle for the mind — something to manage, optimize, or transcend. Depth psychology challenges this split. The body is not separate from psyche; it <em>is</em> psyche in its most immediate, felt form. Emotions live in the gut, in the jaw, in the shoulders. Trauma is held in posture and breath pattern. And beneath all of it, the body is continuously generating its own imagery — gesture, rhythm, impulse, stillness — that carries meaning just as dreams do.</p>
+
+            <div class="expandable" onclick="toggleExpand(this)">
+                <div class="expandable-header">
+                    <h3><span class="section-icon icon-teal" style="width:28px;height:28px;font-size:0.7rem;">◆</span> Interoception — The Inner Sense</h3>
+                    <span class="expand-icon">▸</span>
+                </div>
+                <div class="expandable-body">
+                    <p><strong>Interoception</strong> is the sense that perceives the internal landscape of the body — heartbeat, breath, gut feeling, temperature, muscle tension, the felt sense of aliveness. It's the foundation of emotional awareness: we can't name what we feel until we sense what is happening inside us.</p>
+                    <p>Research in affective neuroscience shows that interoception is the physiological ground of all emotion. When we tune into the body's inner signals, we're not doing something vague or mystical — we're accessing the primary data stream through which emotional life unfolds. Mindful movement is one of the most direct ways to cultivate this sense.</p>
+                </div>
+            </div>
+
+            <div class="expandable" onclick="toggleExpand(this)">
+                <div class="expandable-header">
+                    <h3><span class="section-icon icon-violet" style="width:28px;height:28px;font-size:0.7rem;">◈</span> The Body Holds the Story</h3>
+                    <span class="expand-icon">▸</span>
+                </div>
+                <div class="expandable-body">
+                    <p>Somatic psychology and trauma research both point to the same insight: experience is stored in the body. Not as a metaphor, but as pattern — in breath holding, muscular bracing, postural collapse, chronic tension, frozen gestures. The body is a living archive of everything we've been through.</p>
+                    <p>Mindful movement offers a way to access this material not through analysis but through <em>felt engagement</em>. When we slow down and follow the body's impulse rather than directing it, what surfaces often surprises us. A shoulder drops and grief arrives. A fist unclenches and something loosens in the chest. The body doesn't need to be told what it's carrying — it needs to be given space to speak.</p>
+                </div>
+            </div>
+
+            <div class="expandable" onclick="toggleExpand(this)">
+                <div class="expandable-header">
+                    <h3><span class="section-icon icon-rose" style="width:28px;height:28px;font-size:0.7rem;">◇</span> Movement as Imaginal Practice</h3>
+                    <span class="expand-icon">▸</span>
+                </div>
+                <div class="expandable-body">
+                    <p>The depth tradition recognizes that the imaginal doesn't only arrive in mental images — it arrives in the body's own gestures, rhythms, and postures. When we move without a plan and stay present to what unfolds, we are practicing a form of active imagination through the soma. The movement <em>is</em> the image.</p>
+                    <p>Dance therapist Mary Whitehouse, who bridged depth psychology with movement, described this as "moving from the inside" — not imposing choreography on the body but letting the body reveal what psyche is doing beneath the surface. The goal is not beautiful movement. The goal is <em>authentic</em> movement, whatever that looks like.</p>
+                </div>
+            </div>
+
+            <div class="expandable" onclick="toggleExpand(this)">
+                <div class="expandable-header">
+                    <h3><span class="section-icon icon-gold" style="width:28px;height:28px;font-size:0.7rem;">◇</span> Polyvagal Awareness</h3>
+                    <span class="expand-icon">▸</span>
+                </div>
+                <div class="expandable-body">
+                    <p>Polyvagal theory gives us a map of the nervous system's three primary states: <strong>ventral vagal</strong> (social engagement, safety, connection), <strong>sympathetic</strong> (mobilization, fight-or-flight, activation), and <strong>dorsal vagal</strong> (immobilization, shutdown, conservation). These aren't just abstract categories — they are <em>felt</em> states that shape our posture, movement quality, and capacity for engagement.</p>
+                    <p>Mindful movement can help us notice which state we're in without judgment, and gently expand our capacity to move between them. Today you may notice your body wanting to be still (dorsal), wanting to move quickly (sympathetic), or wanting to connect and reach outward (ventral). All of these are valid starting points. The practice is simply to notice, not to fix.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-accent accent-rose"></div>
+            <h2><span class="section-icon icon-rose">◇</span> Ground Rules for Today</h2>
+            <div style="color: var(--slate); line-height: 2;">
+                <p style="margin-bottom: 0.5rem;">◆ <strong>No performing.</strong> This is not choreography, fitness, or presentation. You are the only audience.</p>
+                <p style="margin-bottom: 0.5rem;">◆ <strong>Process over product.</strong> The quality of attention matters more than the quality of movement.</p>
+                <p style="margin-bottom: 0.5rem;">◆ <strong>Honor your body.</strong> Pain is a boundary. Modify, pause, or sit any station out. Stillness is always a full participation option.</p>
+                <p style="margin-bottom: 0.5rem;">◆ <strong>Eyes soft or closed.</strong> Closing your eyes can deepen inward attention. If that doesn't feel safe, a soft downward gaze works just as well.</p>
+                <p style="margin-bottom: 0.5rem;">◆ <strong>Confidentiality.</strong> What's shared in group stays in group.</p>
+                <p>◆ <strong>Grounding is always available.</strong> If intensity arises, return to your feet on the floor, your breath, the sensation of your hands touching each other.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== PAGE 3: MOVEMENT STATIONS ===================== -->
+    <section class="page" id="page-2">
+
+        <div class="card">
+            <div class="card-accent accent-teal"></div>
+            <h2><span class="section-icon icon-teal">◆</span> Movement Stations</h2>
+            <p style="color: var(--slate); line-height: 1.8; margin-bottom: 0.5rem;">Choose one or two stations that call to you. Each station can be done standing, seated, or lying down — adapt to what your body needs. Spend 15–25 minutes in your chosen station. Click a station to expand its full instructions.</p>
+            <p class="pass-option" style="margin: 0; text-align: left; padding: 0;">Remember: stillness is its own depth practice. You can always sit quietly with eyes closed and attend inward.</p>
+        </div>
+
+        <div class="station-grid" id="stationGrid">
+
+            <!-- Station 1: Impulse -->
+            <div class="station-card" onclick="toggleStation(this)">
+                <div class="station-number">Station I</div>
+                <h3>Following the Impulse</h3>
+                <p class="station-subtitle">Authentic Movement — Moving from the Inside</p>
+                <p style="color: var(--slate); font-size: 0.95rem;">Close your eyes. Wait for the body to initiate. Follow whatever movement wants to come — no choreography, no plan.</p>
+                <div class="station-body">
+                    <div class="station-prompt">
+                        <p><strong>Entry:</strong> Stand or sit with eyes closed. Let your weight settle. Rather than deciding to move, <em>wait for movement to find you</em>. It might begin as a shift of weight, a tilt of the head, a turning of a wrist. It may take a minute. That waiting is part of the practice.</p>
+                    </div>
+                    <div class="station-prompt">
+                        <p><strong>Engagement:</strong> Follow the impulse wherever it leads. If your hand wants to rise, let it. If your torso wants to curl, follow it. If nothing moves, stay with the stillness — attend to the micro-movements inside: your heartbeat, your breath, the subtle sway of standing. You are not performing movement. You are <em>being moved</em>. If the inner critic arrives ("this looks weird," "I'm doing it wrong"), notice the voice, let it pass, and return to sensation.</p>
+                    </div>
+                    <div class="station-prompt">
+                        <p><strong>Landing:</strong> When the movement feels complete — or when you're called to stop — return to stillness gradually. Take three breaths. Notice what changed. Then, on paper, draw the <em>shape</em> of the movement you just experienced — not a figure drawing, but an abstract trace: a line, a spiral, a series of marks. Or write one sentence: "My body said…"</p>
+                    </div>
+                    <div class="facilitator-note">
+                        <p>This station draws directly from the Authentic Movement tradition (Mary Whitehouse, Janet Adler). If possible, offer a "witness" option — one person moves while another sits with eyes open, holding compassionate attention. The mover moves; the witness receives. Debrief with "I saw…" (witness) and "I felt…" (mover), keeping interpretation to a minimum.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Station 2: Breath Mapping -->
+            <div class="station-card" onclick="toggleStation(this)">
+                <div class="station-number">Station II</div>
+                <h3>Breath as Choreographer</h3>
+                <p class="station-subtitle">Breath-Led Movement</p>
+                <p style="color: var(--slate); font-size: 0.95rem;">Let your breath set the pace, the size, and the quality of every movement. The body follows the breath, not the other way around.</p>
+                <div class="station-body">
+                    <div class="station-prompt">
+                        <p><strong>Entry:</strong> Begin standing or seated. Close your eyes. Take several natural breaths without changing anything. Simply observe: where does the breath move in your body? Does it fill the chest? The belly? Does it reach the back of the ribs? The pelvis? Notice the shape breath makes in you.</p>
+                    </div>
+                    <div class="station-prompt">
+                        <p><strong>Engagement:</strong> Now let the breath begin to grow slightly. On each inhale, let the body expand — in whatever direction it wants. On each exhale, let it soften, release, fold. Don't plan the shape. Let the breath <em>decide</em> what the body does. A deep inhale may lift your arms. A long exhale may bow your spine. Short, quick breaths may produce shaking or fluttering. Trust it. Spend 10–15 minutes here, letting the breath choreograph your body through its own intelligence.</p>
+                    </div>
+                    <div class="station-prompt">
+                        <p><strong>Landing:</strong> Return to natural, quiet breath. Let your body come to stillness on its own timeline. When you arrive, place both hands on your abdomen. Notice the quality of your breath now versus when you started. Write or sketch: "The breath took me to…"</p>
+                    </div>
+                    <div class="facilitator-note">
+                        <p>Ambient, non-rhythmic soundscapes work well here — ocean, wind, resonant bowls. Avoid music with a beat, which imposes external rhythm. Remind participants that hyperventilation is a sign to slow down and return to natural pace. This station is particularly accessible for those new to movement work.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Station 3: Weight & Yield -->
+            <div class="station-card" onclick="toggleStation(this)">
+                <div class="station-number">Station III</div>
+                <h3>Weight & Yield</h3>
+                <p class="station-subtitle">Gravity, Support, Surrender</p>
+                <p style="color: var(--slate); font-size: 0.95rem;">Explore the relationship between your body and the ground — the primal conversation between weight, support, and letting go.</p>
+                <div class="station-body">
+                    <div class="station-prompt">
+                        <p><strong>Entry:</strong> Begin standing. Feel your full weight pressing into the floor through the soles of your feet. Slowly begin to give more weight to one side, then the other. Let yourself sway. Notice where you brace, where you resist falling, where you trust the floor to hold you.</p>
+                    </div>
+                    <div class="station-prompt">
+                        <p><strong>Engagement:</strong> Gradually lower yourself toward the ground — at whatever pace feels right. You might fold, kneel, sit, or lie down fully. Explore what it's like to <em>yield</em> weight rather than collapse. There's a difference between falling and surrendering. As you arrive on the floor, feel the surface supporting you. What happens when you stop holding yourself up? Where does the body release? Where does it still brace? Roll, curl, spread, press into the floor. Let it be a conversation between you and gravity.</p>
+                    </div>
+                    <div class="station-prompt">
+                        <p><strong>Rising:</strong> When you're ready, begin finding your way back to standing — but slowly, like growing. Notice the effort of rising. Notice what it takes to reclaim vertical. Pause at any level that interests you: floor, kneeling, half-standing, standing. When you arrive upright, feel the difference. Write or draw: one word for what you released; one word for what you reclaimed.</p>
+                    </div>
+                    <div class="facilitator-note">
+                        <p>This station draws from developmental movement patterns (Bonnie Bainbridge Cohen, Body-Mind Centering). Provide yoga mats or blankets for comfort on the floor. Seated participants can explore yielding weight into a chair, a wall, or their own hands. The metaphor of support and surrender often resonates deeply for participants carrying burdens or struggling with control.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Station 4: Gesture & Meaning -->
+            <div class="station-card" onclick="toggleStation(this)">
+                <div class="station-number">Station IV</div>
+                <h3>The Gesture That Speaks</h3>
+                <p class="station-subtitle">Symbolic Movement & Repetition</p>
+                <p style="color: var(--slate); font-size: 0.95rem;">Find a single gesture — a reaching, a turning away, a closing, an opening — and repeat it until it reveals its deeper meaning.</p>
+                <div class="station-body">
+                    <div class="station-prompt">
+                        <p><strong>Entry:</strong> Stand or sit. Bring to mind a feeling, a situation, or a question that is alive for you right now. Don't overthink — take the first thing that arrives. Now let your body find <em>one gesture</em> that expresses something about that feeling. It might be a hand pressing outward (boundary). A reaching forward (longing). Arms wrapping around yourself (protection). A turning of the head (refusal or searching). Let it be instinctive.</p>
+                    </div>
+                    <div class="station-prompt">
+                        <p><strong>Engagement:</strong> Repeat the gesture. Slowly. Again and again. Each repetition, notice what shifts — does the gesture grow? Shrink? Change quality? Does it want to transform into something else? Stay with the repetition long enough for it to stop being about what you <em>decided</em> and start becoming about what <em>it</em> wants to say. This is the body's version of active imagination — a gesture repeated until it deepens into revelation.</p>
+                    </div>
+                    <div class="station-prompt">
+                        <p><strong>Landing:</strong> Let the gesture arrive at a final form — its most essential version. Hold it for three breaths like a living sculpture. Then release. Write: "This gesture is about…" and "What it needed me to know is…"</p>
+                    </div>
+                    <div class="facilitator-note">
+                        <p>This station has strong emotional potential. The repetition of a gesture can surface grief, anger, tenderness, or longing unexpectedly. Normalize whatever arises. Pairs work well here: one person repeats their gesture while the other witnesses, then switch. The witness doesn't interpret — they simply share what they noticed ("I saw your hand slow down near the end").</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Station 5: Rhythm & Shake -->
+            <div class="station-card" onclick="toggleStation(this)">
+                <div class="station-number">Station V</div>
+                <h3>Rhythm, Shake, Release</h3>
+                <p class="station-subtitle">Activation, Discharge, Reset</p>
+                <p style="color: var(--slate); font-size: 0.95rem;">Use shaking, rhythmic bouncing, and percussive movement to discharge held tension and let the nervous system reset.</p>
+                <div class="station-body">
+                    <div class="station-prompt">
+                        <p><strong>Entry:</strong> Stand with feet hip-width apart, knees slightly bent. Begin bouncing gently — not jumping, just letting your knees soften and spring. Feel the vibration travel through your whole body. Let your arms hang loose, your jaw soften, your shoulders drop. Increase the bounce slowly.</p>
+                    </div>
+                    <div class="station-prompt">
+                        <p><strong>Engagement:</strong> Now begin to shake. Shake your hands. Your arms. Your legs. Your whole body. This isn't exercise — it's <em>neurological discharge</em>. Animals in the wild shake after a threat to release survival energy. Humans store it. Let your body do what it already knows how to do. Shake for 5–7 minutes. It may feel silly at first, then intense, then strangely calming. If sound wants to come — a sigh, a groan, a laugh — let it.</p>
+                    </div>
+                    <div class="station-prompt">
+                        <p><strong>Landing:</strong> Slow the shaking gradually. Come to complete stillness. Stand or lie down. Feel the aliveness in your body — the tingling, the warmth, the subtle vibration that continues even after you stop. This is your nervous system reorganizing. Stay here for 2–3 minutes in silence. Then write: what did your body release? What arrived in the space that was cleared?</p>
+                    </div>
+                    <div class="facilitator-note">
+                        <p>This station is informed by Trauma Release Exercises (TRE) and somatic experiencing principles. Drumming or rhythmic music supports this station well. Watch for participants who dissociate during shaking (glazed eyes, checking out) — gently invite them to feel their feet, slow down, or come to standing stillness. The discharge process can be activating; ensure grounding time after.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Station 6: Relational Movement -->
+            <div class="station-card" onclick="toggleStation(this)">
+                <div class="station-number">Station VI</div>
+                <h3>The Space Between</h3>
+                <p class="station-subtitle">Relational Movement — Mirroring & Distance</p>
+                <p style="color: var(--slate); font-size: 0.95rem;">Explore movement in relationship to another person — the dance of approach, distance, attunement, and autonomy.</p>
+                <div class="station-body">
+                    <div class="station-prompt">
+                        <p><strong>Entry:</strong> Find a partner. Stand facing each other at a comfortable distance. Take a moment to simply be in each other's presence without performing or filling the silence. Notice what your body does when it's being seen — does it tighten? Soften? Look away?</p>
+                    </div>
+                    <div class="station-prompt">
+                        <p><strong>Engagement — Part 1, Mirroring:</strong> One person begins moving slowly. The other follows, mirroring as closely as possible — not mimicking, but <em>attuning</em>. The leader moves from inner impulse; the follower practices empathic sensing. After 3–4 minutes, switch roles. Then move into a phase where neither leads — both respond to each other simultaneously.</p>
+                    </div>
+                    <div class="station-prompt">
+                        <p><strong>Engagement — Part 2, Distance:</strong> Still facing each other, begin to explore proximity. Slowly move closer. Notice where your body says "enough." Move apart. Notice where longing or relief arises. Find the distance that feels <em>right</em> — then notice it may keep changing. This is the somatic experience of attachment: the ongoing negotiation between closeness and space.</p>
+                    </div>
+                    <div class="station-prompt">
+                        <p><strong>Landing:</strong> Return to your original distance. Offer a small gesture of acknowledgment — a nod, a hand on heart, a bow. Write privately: "Near you, my body felt… Far from you, my body felt…"</p>
+                    </div>
+                    <div class="facilitator-note">
+                        <p>This station touches attachment patterns directly. Some participants may find closeness activating; others may struggle with distance. Normalize all responses. If the group has odd numbers, offer a solo version: move in relationship to an empty chair or a point in the room. The solo exploration of approach/withdrawal is equally rich.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Station 7: Open / Stillness -->
+            <div class="station-card" onclick="toggleStation(this)">
+                <div class="station-number">Station VII</div>
+                <h3>The Open Gate</h3>
+                <p class="station-subtitle">Intuitive — Your Own Practice or Deep Stillness</p>
+                <p style="color: var(--slate); font-size: 0.95rem;">Trust whatever your body is asking for. Move, be still, combine stations, or rest in deep listening.</p>
+                <div class="station-body">
+                    <div class="station-prompt">
+                        <p><strong>Entry:</strong> The depth tradition recognizes that each body has its own way of processing. Your body may be asking for something none of the other stations cover. Or it may be asking for nothing — for rest, for stillness, for the simple experience of being held by gravity in a room where you don't have to produce anything.</p>
+                    </div>
+                    <div class="station-prompt">
+                        <p><strong>Engagement:</strong> Follow what arises. You might combine elements — shake and then lie down, mirror yourself in the wall's shadow, repeat a gesture while breathing deeply. Or you might lie on the floor with your eyes closed and simply practice interoception: sensing the internal weather of your body with no agenda to change it. Receptive awareness is one of the deepest movement practices there is.</p>
+                    </div>
+                    <div class="station-prompt">
+                        <p><strong>Capture:</strong> However you spent this time, leave a trace. A word, a drawing, a posture you want to remember. Something small to carry the body's message back into the verbal world.</p>
+                    </div>
+                    <div class="facilitator-note">
+                        <p>This station functions as the "pass with full presence" option. Lying in constructive rest (on back, knees bent, feet flat) is encouraged as an alternative. Covering with a blanket can help participants who need extra containment. Emphasize that rest is not opting out — it is a somatic practice in its own right.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===================== PAGE 4: INTEGRATION ===================== -->
+    <section class="page" id="page-3">
+
+        <div class="card">
+            <div class="card-accent accent-gold"></div>
+            <h2><span class="section-icon icon-gold">◇</span> Integration & Reflection</h2>
+            <p style="color: var(--slate); line-height: 1.8; margin-bottom: 1.5rem;">Take a few minutes to transition from body time back to verbal time. This transition is important — the body speaks one language, and words speak another. Integration is the bridge between them. Don't rush it.</p>
+
+            <div class="integration-prompt">
+                <h4>Landing in the Body</h4>
+                <p>Before reflecting in words, take 30 seconds to simply stand or sit and <em>scan</em>. How does your body feel now compared to when you arrived? Don't look for the right answer. Just notice temperature, weight, tension, openness, aliveness, fatigue — whatever is present. This noticing <em>is</em> the integration beginning.</p>
+            </div>
+
+            <div class="integration-prompt">
+                <h4>Reflection Prompts</h4>
+                <p>Choose one or two that resonate. You're welcome to write, share aloud, or hold your reflection in the body where it lives.</p>
+            </div>
+
+            <div class="reflection-area">
+                <label>What did your body want to do today that surprised you?</label>
+                <textarea placeholder="I didn't expect my body to..."></textarea>
+            </div>
+
+            <div class="reflection-area">
+                <label>Where did you notice the tension between controlling and following?</label>
+                <textarea placeholder="I wanted to direct the movement when..."></textarea>
+            </div>
+
+            <div class="reflection-area">
+                <label>If your movement could be translated into one sentence, what would it say?</label>
+                <textarea placeholder="My body said..."></textarea>
+            </div>
+
+            <div class="reflection-area">
+                <label>What is one thing your body knows right now that your mind is still catching up to?</label>
+                <textarea placeholder="My body knows that..."></textarea>
+            </div>
+
+            <div class="facilitator-note" style="margin-top: 1.5rem;">
+                <p>Invite voluntary sharing — pairs first (2–3 minutes each), then the wider group. Participants can share in words, or they can share a gesture. Offering "you can show us instead of tell us" opens a powerful alternative channel. Normalize all responses, including "I felt nothing" or "I didn't move much." Both carry information. Resistance and emptiness are not failures — they are somatic data.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-accent accent-violet"></div>
+            <h2><span class="section-icon icon-violet">◈</span> Discussion Seeds</h2>
+            <p style="color: var(--slate); line-height: 1.8; margin-bottom: 1.25rem;">For group processing after individual reflection:</p>
+
+            <div class="integration-prompt">
+                <p>◆ What was it like to move without a plan — to follow the body's impulse rather than direct it? Where was that easy, and where did you resist?</p>
+            </div>
+            <div class="integration-prompt">
+                <p>◆ The depth tradition says the body "dreams" through its gestures. Did your movement feel like it was telling you something? What?</p>
+            </div>
+            <div class="integration-prompt">
+                <p>◆ Where do you notice the <em>process vs. product</em> tension in your relationship with your own body — in exercise, appearance, performance, health? What would it mean to listen to the body's intelligence rather than manage it?</p>
+            </div>
+            <div class="integration-prompt">
+                <p>◆ What did you notice about your nervous system today — activation, stillness, shutdown, aliveness? No state is wrong. They're all chapters of the body's story.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-accent accent-teal"></div>
+            <h2><span class="section-icon icon-teal">◆</span> Closing</h2>
+
+            <div class="quote-block">
+                <p>"I move — therefore I am."</p>
+                <div class="quote-source">— Haruki Murakami (after Descartes)</div>
+            </div>
+
+            <div class="closing-block" style="border: none; padding-top: 0;">
+                <p>Thank you for trusting the body's lead today. In a culture that constantly asks us to think our way through life, what we practiced here is radical: listening to the soma, letting movement arise on its own terms, and trusting that the process — however messy, slow, strange, or still — carries its own wisdom.</p>
+                <p style="margin-top: 1rem;">Carry something small from today into the week. A gesture. A breath pattern. The memory of what it felt like to let your body speak without editing. You don't need a mat or a studio. You just need a moment of listening.</p>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<script>
+    function showPage(index) {
+        document.querySelectorAll('.page').forEach((p, i) => p.classList.toggle('active', i === index));
+        document.querySelectorAll('.nav-tab').forEach((t, i) => {
+            t.classList.toggle('active', i === index);
+            t.setAttribute('aria-selected', i === index);
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleExpand(el) { el.classList.toggle('open'); }
+
+    function toggleStation(card) {
+        const wasExpanded = card.classList.contains('expanded');
+        document.querySelectorAll('.station-card').forEach(c => c.classList.remove('expanded'));
+        if (!wasExpanded) {
+            card.classList.add('expanded');
+            setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+        }
+    }
+
+    let breathingActive = false;
+    let breathInterval = null;
+
+    function toggleBreathing() {
+        const circle = document.getElementById('breathCircle');
+        const text = document.getElementById('breathText');
+        const instruction = document.getElementById('breathInstruction');
+
+        if (breathingActive) {
+            breathingActive = false;
+            circle.classList.remove('breathing');
+            text.textContent = 'Begin';
+            instruction.textContent = '';
+            if (breathInterval) clearInterval(breathInterval);
+            return;
+        }
+
+        breathingActive = true;
+        circle.classList.add('breathing');
+
+        const phases = [
+            { text: 'Inhale', instruction: 'Breathe in slowly… let the body expand…', duration: 4000 },
+            { text: 'Hold', instruction: 'Gently hold… feel the fullness…', duration: 4000 },
+            { text: 'Exhale', instruction: 'Release slowly… let weight settle…', duration: 4000 },
+            { text: 'Rest', instruction: 'Rest here… nothing to do…', duration: 4000 }
+        ];
+
+        let phaseIndex = 0;
+
+        function runPhase() {
+            if (!breathingActive) return;
+            const phase = phases[phaseIndex % phases.length];
+            text.textContent = phase.text;
+            instruction.textContent = phase.instruction;
+            phaseIndex++;
+        }
+
+        runPhase();
+        breathInterval = setInterval(runPhase, 4000);
+    }
+
+    document.getElementById('breathCircle').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleBreathing(); }
+    });
+
+    window.addEventListener('load', () => {
+        document.querySelectorAll('.principle-card').forEach((card, i) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(12px)';
+            setTimeout(() => {
+                card.style.transition = 'all 0.5s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 200 + i * 100);
+        });
+    });
+</script>
+
+</body>
+</html>
